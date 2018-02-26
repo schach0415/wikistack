@@ -10,7 +10,7 @@ router.post('/', (req, res, next) => {
     res.send(`hello from ${req.path} by ${req.method}`)
 })
 router.get('/add', (req, res, next) => {
-    res.send(`hello from ${req.path} by ${req.method}`)
+    res.render('addpage')
 })
 
 module.exports = router;
