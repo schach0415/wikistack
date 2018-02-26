@@ -10,7 +10,9 @@ const Page = db.define('page', {
     },
     urlTitle: {
         type: Sequelize.STRING,
-        allowNull: false,
+        get() {
+            return this.getDataValue('title').replace(/\W/g, " ").replace(/\s*/g, "_")
+        }
     },
     content: {
         type: Sequelize.TEXT,
@@ -22,6 +24,12 @@ const Page = db.define('page', {
     date: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
+    }
+}, {
+    getterMethods: {
+        setItUp: function(){
+            
+        }
     }
 })
 
